@@ -528,12 +528,12 @@
   ],
   "repository": {
     "aura-expression": {
-      "name": "punctuation.control.aura.expression",
+      "name": "expression.control.aura",
       "begin": "\\{\\!",
       "end": "\\}",
       "patterns": [
         {
-          "name": "keyword.control.aura.expression",
+          "name": "keyword.control.aura",
           "match": "\\b(add|sub|mult|div|mod|abs|neg|concat|format|join|length|empty|equals|notequals|lessthan|greaterthan|lessthanorequal|greaterthanorequal|and|or|not|if|eq|ne|lt|gt|le|ge)\\b"
         },
         {
@@ -571,10 +571,10 @@
               "name": "punctuation.definition.tag.begin.html"
             },
             "2": {
-              "name": "tag.control.aura.expression"
+              "name": "tag.control.aura"
             },
             "3": {
-              "name": "tag.control.aura.expression"
+              "name": "tag.control.aura"
             },
             "4": {
               "name": "punctuation.definition.tag.begin.html"
@@ -600,10 +600,10 @@
               "name": "punctuation.definition.tag.begin.html"
             },
             "2": {
-              "name": "tag.control.aura.expression"
+              "name": "tag.control.aura"
             },
             "3": {
-              "name": "tag.control.aura.expression"
+              "name": "tag.control.aura"
             }
           },
           "end": ">",
