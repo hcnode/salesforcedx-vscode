@@ -20,6 +20,9 @@
   },
   "patterns": [
     {
+      "include": "#aura-expression"
+    },
+    {
       "begin": "(<)([a-zA-Z][a-zA-Z0-9:-]*)(?=[^>]*></\\2>)",
       "beginCaptures": {
         "1": {
@@ -444,6 +447,9 @@
       ]
     },
     {
+      "include": "#aura-tag"
+    },
+    {
       "begin": "(</?)((?i:address|blockquote|dd|div|section|article|aside|header|footer|nav|menu|dl|dt|fieldset|form|frame|frameset|h1|h2|h3|h4|h5|h6|iframe|noframes|object|ol|p|ul|applet|center|dir|hr|pre)\\b)",
       "beginCaptures": {
         "1": {
@@ -521,6 +527,100 @@
     }
   ],
   "repository": {
+    "aura-expression": {
+      "name": "punctuation.control.aura.expression",
+      "begin": "\\{\\!",
+      "end": "\\}",
+      "patterns": [
+        {
+          "name": "keyword.control.aura.expression",
+          "match": "\\b(add|sub|mult|div|mod|abs|neg|concat|format|join|length|empty|equals|notequals|lessthan|greaterthan|lessthanorequal|greaterthanorequal|and|or|not|if|eq|ne|lt|gt|le|ge)\\b"
+        },
+        {
+          "name": "keyword.operator.arithmetic.js",
+          "match": "(\\+|\\-|\\*|\\%|\\=|\\?|\\>|\\<|\\=\\=|\\:|\\.|\\,)"
+        },
+        {
+          "begin": "'",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.html"
+            }
+          },
+          "end": "'",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.html"
+            }
+          },
+          "name": "string.quoted.single.html",
+          "patterns": [
+            {
+              "include": "#entities"
+            }
+          ]
+        }
+      ]
+    },
+    "aura-tag": {
+      "patterns": [
+        {
+          "begin": "(</?)(aura|lightning|c|ltng)(\\:.+?)(\\b)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.begin.html"
+            },
+            "2": {
+              "name": "tag.control.aura.expression"
+            },
+            "3": {
+              "name": "tag.control.aura.expression"
+            },
+            "4": {
+              "name": "punctuation.definition.tag.begin.html"
+            }
+          },
+          "end": "(>)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.tag.end.html"
+            }
+          },
+          "name": "meta.tag.structure.begin.aura",
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        },
+        {
+          "begin": "(?i)(</)(aura|lightning|c)(\\:.+?)(?=\\s|/?>)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.begin.html"
+            },
+            "2": {
+              "name": "tag.control.aura.expression"
+            },
+            "3": {
+              "name": "tag.control.aura.expression"
+            }
+          },
+          "end": ">",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.tag.end.html"
+            }
+          },
+          "name": "meta.tag.structure.end.aura",
+          "patterns": [
+            {
+              "include": "#tag-stuff"
+            }
+          ]
+        }
+      ]
+    },
     "embedded-code": {
       "patterns": [
         {
@@ -603,6 +703,9 @@
       },
       "name": "string.quoted.double.html",
       "patterns": [
+        {
+          "include": "#aura-expression"
+        },
         {
           "include": "#embedded-code"
         },
@@ -712,6 +815,9 @@
     },
     "tag-stuff": {
       "patterns": [
+        {
+          "include": "#aura-expression"
+        },
         {
           "include": "#tag-id-attribute"
         },
