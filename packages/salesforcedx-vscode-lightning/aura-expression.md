@@ -1,6 +1,6 @@
 ## Features
 
-Create grammars for aura cmp file syntax highlight, includes:
+Create new rules for aura cmp file syntax highlight, includes:
 * aura tags
 * {!expression}
 
