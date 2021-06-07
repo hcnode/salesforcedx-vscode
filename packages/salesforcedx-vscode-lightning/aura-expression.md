@@ -10,7 +10,7 @@ Create grammars for aura cmp file syntax highlight, includes:
 
 
 ## Colors setting
-```json
+```js
 "editor.tokenColorCustomizations": {
   "textMateRules": [
     // aura expression color: {!expression}
